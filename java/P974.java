@@ -1,6 +1,7 @@
 import java.util.*;
 
 class Solution {
+    // similiar to #523
     public int subarraysDivByK(int[] nums, int k) {
         int[] freq = new int[k];
         freq[0] = 1; // old: count += freq[0]; same math as just adding another instance
