@@ -13,7 +13,7 @@ class Solution:
         n = len(board[0])
         visited = set()
 
-        ans = set()
+        ans = []
         word = []
         
         def dfs(x, y, trie):
@@ -22,7 +22,9 @@ class Solution:
                 visited.add((x,y))
                 word.append(board[x][y])
 
-                if "$" in t: ans.add("".join(word))
+                if "$" in t:
+                    ans.append("".join(word))
+                    t.pop("$", None)
 
                 if x > 0: dfs(x-1, y, t)
                 if y > 0: dfs(x, y-1, t)
@@ -36,4 +38,4 @@ class Solution:
             for j in range(n):
                 dfs(i, j, root)
 
-        return list(ans)
+        return ans
